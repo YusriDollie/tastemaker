@@ -44,8 +44,7 @@ if __name__ == "__main__":
     )
     args = parser.parse_args()
 
-    user = "yusri-dollie"
-    # user = input("Please enter Spotify Username:\n")
+    user = input("Please enter Spotify Username:\n")
     print(f"Attempting to authenticate as {user}")
 
     sp, token = spotutils.login_to_spotify(user)
