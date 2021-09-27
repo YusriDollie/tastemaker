@@ -34,13 +34,13 @@ if __name__ == "__main__":
         "-s",
         "--skipgen",
         action="store_true",
-        help="skip data generation and read data from file",
+        help="skip taste data generation and read data from file",
     )
     parser.add_argument(
         "-c",
         "--skipclass",
         action="store_true",
-        help="skip data generation and read data from file",
+        help="skip classifier data and read data from file",
     )
     args = parser.parse_args()
 
@@ -76,8 +76,8 @@ if __name__ == "__main__":
         likesdf = spotutils.get_dataframe(sp, likedData, constants.LIKE)
         dislikesdf = spotutils.get_dataframe(sp, dislikedData, constants.DISLIKE)
 
-        print(likesdf)
-        print(dislikesdf)
+        # print(likesdf)
+        # print(dislikesdf)
 
         dataSet = pandas.concat([likesdf, dislikesdf], axis=0)
 
@@ -182,7 +182,7 @@ if __name__ == "__main__":
 
     print("\nClassifier(s) successfully loaded.")
 
-    PLAYLIST = input("Please enter a Spotify playlist ID or URI, and press enter:\n")
+    PLAYLIST = input("Please enter a Spotify playlist ID or URI to run predictions against, and press enter:\n")
 
     # You must specify a playlist
     # e.g. spotify:user:USERNAME:playlist:PLAYLIST_ID (Spotify URI)
@@ -205,3 +205,4 @@ if __name__ == "__main__":
 
     for clf in CLASSIFIERS:
         classify_playlist(clf, playlistFeatureData, playlistDataDict)
+
